@@ -58,7 +58,7 @@ def send_message_to_queue():
         body='hello world', 
         properties=pika.BasicProperties(
             delivery_mode=2,
-            headers="head message",
+            headers={"head":"h1"},
             )
     )
 
