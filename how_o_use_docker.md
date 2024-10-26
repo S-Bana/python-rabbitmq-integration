@@ -11,6 +11,9 @@ docker run -d
     rabbitmq:3-management
 '''
 
+# url for connect rabitmq management 
+http://localhost:15672/
+
 # run rabbitmq at docker in interactive mode 
 docker exec -it some-rabbit bash
 
