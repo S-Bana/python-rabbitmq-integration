@@ -1,4 +1,16 @@
+'''
+docker run -d
+    --hostname my-rabbit
+    --name some-rabbit
+    -e RABBITMQ_DEFAULT_USER=bob
+    -e RABBITMQ_DEFAULT_PASS=bob
+    -p 5672:5672
+    -p 15672:15672
+    rabbitmq:3-management
+'''
+
 import pika
+
 
 def call_back(ch, method, properties, body):
     """
@@ -44,6 +56,10 @@ def consume_messages_from_queue():
 
     # Create a channel for communication
     ch1 = connection.channel()
+
+    # Declare a queue named 'que1'
+    # If the queue doesn't exist, it will be created
+    ch1.queue_declare(queue='que1')
 
     # Declare a durable and passive queue named 'que1'
     ch1.queue_declare(
