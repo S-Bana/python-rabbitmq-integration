@@ -12,7 +12,7 @@ def send_message_to_queue():
 
     ch1 = connection.channel()
 
-    ch1.exchange_declare(exchange='logs', exchange_type='topic')
+    ch1.exchange_declare(exchange='logs2', exchange_type='topic')
 
     message_ = {
         'info.debug.notimportant':'hello world',
@@ -21,7 +21,7 @@ def send_message_to_queue():
 
     for k,v in message_.items():
         ch1.basic_publish(
-            exchange='logs', 
+            exchange='logs2', 
             routing_key=k,  
             body=v, 
         )
