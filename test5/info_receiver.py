@@ -16,7 +16,7 @@ def consume_messages_from_queue():
 
     ch1 = connection.channel()
 
-    ch1.exchange_declare(exchange='logs', exchange_type='fanout')
+    ch1.exchange_declare(exchange='logs', exchange_type='direct')
 
     result = ch1.queue_declare(
                 queue='', 
